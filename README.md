@@ -1,3 +1,7 @@
+> You can access Open WebUI (port: 8080), search for a model in the top-left "Select a model" section, and pull it from ollama.com. (For a list of available models, visit <https://ollama.com/models>). 
+
+> If you can't find a model you like, you can download one directly from Huggingface and import it manually.
+
 | Port | Type (HTTP/TCP) | Function     |
 |------|-----------------|--------------|
 | 22   | TCP             | SSH          |
@@ -9,6 +13,9 @@
 |--------------------------|-----------------------------------------------------------------------------|--------------|
 | `JUPYTERLAB_PASSWORD`    | Set a password for JupyterLab. If not set, no password is required.         | (Not Set - No Password) |
 | `TIME_ZONE`           | Sets the system timezone. If not set, defaults to `Etc/UTC`.                | `Etc/UTC`    |
+| `OLLAMA_MODELS` | The path to the models directory.| `/workspace/models` |
+
+> If necessary, you can refer to the official docs to add environment variables for Ollama or Open WebUI.
 
 #### **How to use TIME_ZONE**
 
