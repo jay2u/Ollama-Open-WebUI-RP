@@ -59,7 +59,7 @@ ENV PATH="/venv/bin:$PATH"
 RUN pip install --no-cache-dir -U \
     pip setuptools wheel \
     jupyterlab jupyterlab_widgets ipykernel ipywidgets \
-    open-webui hf_transfer \
+    open-webui huggingface_hub hf_transfer \
     torch==${TORCH_VERSION} torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/${CUDA_VERSION}
 
 RUN mkdir -p /workspace/logs /workspace/models
