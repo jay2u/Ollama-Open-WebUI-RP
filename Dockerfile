@@ -18,6 +18,7 @@ ENV UV_COMPILE_BYTECODE=1
 
 ENV OLLAMA_HOST=0.0.0.0
 ENV OLLAMA_MODELS=/workspace/models
+ENV DATA_DIR=/workspace/data
 
 # Override the default huggingface cache directory.
 ENV HF_HOME="/runpod-volume/.cache/huggingface/"
@@ -62,7 +63,7 @@ RUN pip install --no-cache-dir -U \
     open-webui huggingface_hub hf_transfer \
     torch==${TORCH_VERSION} torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/${CUDA_VERSION}
 
-RUN mkdir -p /workspace/logs /workspace/models
+RUN mkdir -p /workspace/logs /workspace/models /workspace/data
 
 # Install Ollama
 ADD https://ollama.com/install.sh /ollama-installer.sh
