@@ -16,6 +16,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
 ENV UV_COMPILE_BYTECODE=1
 
+ENV OLLAMA_HOST=0.0.0.0
 ENV OLLAMA_MODELS=/workspace/models
 
 # Override the default huggingface cache directory.
