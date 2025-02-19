@@ -14,6 +14,7 @@
 | `JUPYTERLAB_PASSWORD`    | Set a password for JupyterLab. If not set, no password is required.         | (Not Set - No Password) |
 | `TIME_ZONE`           | Sets the system timezone. If not set, defaults to `Etc/UTC`.                | `Etc/UTC`    |
 | `OLLAMA_MODELS` | The path to the models directory.| `/workspace/models` |
+| `DATA_DIR` | (Open WebUI) Specifies the base directory for data storage, including uploads, cache, vector database, etc. | `/workspace/data` |
 
 > If necessary, you can refer to the official docs to add environment variables for Ollama or Open WebUI.
 
