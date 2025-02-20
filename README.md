@@ -15,7 +15,7 @@
 | `DATA_DIR`               | (Open WebUI) Base directory for data storage.                              | `/workspace/data` |
 | `WEBUI_AUTH`             | (Open WebUI) Enables (`True`) or disables (`False`) authentication. `False` runs Single-User Mode (no login). | `False` |
 
-> Refer to the official docs to add environment variables for [Ollama](https://github.com/ollama/ollama/issues/2941#issuecomment-2322778733) or [Open WebUI](https://docs.openwebui.com/) if needed.
+> Refer to the official docs to add environment variables for [**Ollama**](https://github.com/ollama/ollama/issues/2941#issuecomment-2322778733) or [**Open WebUI**](https://docs.openwebui.com/) if needed.
 
 #### **Using WEBUI_AUTH**
 
