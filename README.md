@@ -19,7 +19,7 @@
 
 #### **Using WEBUI_AUTH**
 
-> If set to False, authentication is disabled for your Open WebUI instance. However, this can only be done on fresh installations with no existing users. If users are registered, authentication cannot be disabled. Ensure the database is empty before turning off `WEBUI_AUTH`.
+If set to False, authentication is disabled for your Open WebUI instance. However, this can only be done on fresh installations with no existing users. If users are registered, authentication cannot be disabled. Ensure the database is empty before turning off `WEBUI_AUTH`.
 
 #### **Using TIME_ZONE**  
 
