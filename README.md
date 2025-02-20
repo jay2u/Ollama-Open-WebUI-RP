@@ -1,6 +1,4 @@
-> You can access Open WebUI (port: 8080), search for a model in the top-left "Select a model" section, and pull it from ollama.com. (For a list of available models, visit <https://ollama.com/models>). 
-
-> If you can't find a model you like, you can download one directly from Huggingface and import it manually.
+> You can access Open WebUI (port: 8080), search for a model in the top-left "Select a model" section, and pull it from ollama.com. (For a list of available models, visit <https://ollama.com/models>). If the model isn't available, download it from Hugging Face and import it manually.
 
 | Port | Type (HTTP/TCP) | Function     |
 |------|-----------------|--------------|
@@ -11,24 +9,24 @@
 
 | Environment Variable     | Description                                                                 | Default      |
 |--------------------------|-----------------------------------------------------------------------------|--------------|
-| `JUPYTERLAB_PASSWORD`    | Set a password for JupyterLab. If not set, no password is required.         | (Not Set - No Password) |
-| `TIME_ZONE`           | Sets the system timezone. If not set, defaults to `Etc/UTC`.                | `Etc/UTC`    |
-| `OLLAMA_MODELS` | The path to the models directory.| `/workspace/models` |
-| `DATA_DIR` | (Open WebUI) Specifies the base directory for data storage, including uploads, cache, vector database, etc. | `/workspace/data` |
-| `WEBUI_AUTH` | (Open WebUI) Enables(`True`) or disables(`False`) authentication. If set to `False`, runs in Single-User Mode (Disabling Login). | `False` |
+| `JUPYTERLAB_PASSWORD`    | Password for JupyterLab. If unset, no password is required.                 | (Not Set)    |
+| `TIME_ZONE`              | System timezone. Defaults to `Etc/UTC` if unset.                            | `Etc/UTC`    |
+| `OLLAMA_MODELS`          | Path to the models directory.                                               | `/workspace/models` |
+| `DATA_DIR`               | (Open WebUI) Base directory for data storage.                              | `/workspace/data` |
+| `WEBUI_AUTH`             | (Open WebUI) Enables (`True`) or disables (`False`) authentication. `False` runs Single-User Mode (no login). | `False` |
 
-> If necessary, you can refer to the official docs to add environment variables for Ollama or Open WebUI.
+> Refer to the official docs to add environment variables for Ollama or Open WebUI if needed.
 
-#### **How to use TIME_ZONE**
+#### **Using TIME_ZONE**  
 
-- Available time zones can be found at <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones> (e.g., `America/New_York`, `Asia/Seoul`).
+Find available time zones <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones> (e.g., `America/New_York`, `Asia/Seoul`).
 
 | Application | Log file                         |
 |-------------|----------------------------------|
 | JupyterLab  | /workspace/logs/jupyterlab.log |
 | Ollama | /workspace/logs/ollama.log |
 
-**If you have any suggestions or issues, please leave feedback at <https://github.com/somb1/Ollama-Open-WebUI-RP/issues>**
+**For suggestions or issues, leave feedback at <https://github.com/somb1/Ollama-Open-WebUI-RP/issues>**
 
 ---
 
@@ -42,3 +40,5 @@
 - **Libraries**:
   - PyTorch 2.6.0
   - CUDA 12.4
+  - huggingface_hub
+  - hf_transfer
