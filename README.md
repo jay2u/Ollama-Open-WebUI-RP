@@ -15,6 +15,7 @@
 | `TIME_ZONE`           | Sets the system timezone. If not set, defaults to `Etc/UTC`.                | `Etc/UTC`    |
 | `OLLAMA_MODELS` | The path to the models directory.| `/workspace/models` |
 | `DATA_DIR` | (Open WebUI) Specifies the base directory for data storage, including uploads, cache, vector database, etc. | `/workspace/data` |
+| `WEBUI_AUTH` | (Open WebUI) Enables or disables authentication. If set to `False`, runs in Single-User Mode (Disabling Login). | `False` |
 
 > If necessary, you can refer to the official docs to add environment variables for Ollama or Open WebUI.
 
