@@ -17,6 +17,10 @@
 
 > Refer to the official docs to add environment variables for Ollama or Open WebUI if needed.
 
+#### **Using WEBUI_AUTH**
+
+> If set to False, authentication is disabled for your Open WebUI instance. However, this can only be done on fresh installations with no existing users. If users are registered, authentication cannot be disabled. Ensure the database is empty before turning off `WEBUI_AUTH`.
+
 #### **Using TIME_ZONE**  
 
 Find available time zones <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones> (e.g., `America/New_York`, `Asia/Seoul`).
