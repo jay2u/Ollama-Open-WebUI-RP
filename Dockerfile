@@ -23,11 +23,6 @@ ENV WEBUI_AUTH=False
 
 # Override the default huggingface cache directory.
 ENV HF_HOME="/runpod-volume/.cache/huggingface/"
-ENV HF_DATASETS_CACHE="/runpod-volume/.cache/huggingface/datasets/"
-ENV DEFAULT_HF_METRICS_CACHE="/runpod-volume/.cache/huggingface/metrics/"
-ENV DEFAULT_HF_MODULES_CACHE="/runpod-volume/.cache/huggingface/modules/"
-ENV HUGGINGFACE_HUB_CACHE="/runpod-volume/.cache/huggingface/hub/"
-ENV HUGGINGFACE_ASSETS_CACHE="/runpod-volume/.cache/huggingface/assets/"
 
 # Faster transfer of models from the hub to the container
 ENV HF_HUB_ENABLE_HF_TRANSFER="1"
@@ -64,7 +59,7 @@ RUN pip install --no-cache-dir -U \
     open-webui huggingface_hub hf_transfer \
     torch==${TORCH_VERSION} torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/${CUDA_VERSION}
 
-RUN mkdir -p /workspace/logs /workspace/models /workspace/data
+RUN mkdir -p /runpod-volume/.cache/huggingface/{hub,assets,token} /workspace/{logs,models,data}
 
 # Install Ollama
 ADD https://ollama.com/install.sh /ollama-installer.sh
