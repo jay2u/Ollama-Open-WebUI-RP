@@ -59,7 +59,7 @@ RUN pip install --no-cache-dir -U \
     open-webui huggingface_hub hf_transfer \
     torch==${TORCH_VERSION} torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/${CUDA_VERSION}
 
-RUN mkdir -p /runpod-volume/.cache/huggingface/{hub,assets,token} /workspace/{logs,models,data}
+RUN mkdir -p /workspace/{logs,models,data}
 
 # Install Ollama
 ADD https://ollama.com/install.sh /ollama-installer.sh
