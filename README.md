@@ -1,4 +1,5 @@
-> You can access Open WebUI (port: 8080), search for a model in the top-left "Select a model" section, and pull it from ollama.com. (For a list of available models, visit <https://ollama.com/models>). If the model isn't available, download it from Hugging Face and import it manually.
+> You can access Open WebUI (port: 8080), search for a model in the top-left "Select a model" section, and pull it from ollama.com. (For a list of available models, visit **<https://ollama.com/models>**) \
+> If the model isn't available, download it from Hugging Face and import it manually.
 
 | Port | Type (HTTP/TCP) | Function     |
 |------|-----------------|--------------|
@@ -15,7 +16,7 @@
 | `DATA_DIR`               | (Open WebUI) Base directory for data storage.                              | `/workspace/data` |
 | `WEBUI_AUTH`             | (Open WebUI) Enables (`True`) or disables (`False`) authentication. `False` runs Single-User Mode (no login). | `False` |
 
-> Refer to the official docs to add environment variables for [**Ollama**](https://github.com/ollama/ollama/issues/2941#issuecomment-2322778733) or [**Open WebUI**](https://docs.openwebui.com/) if needed.
+> Refer to the official docs to add environment variables for [**Ollama**](https://github.com/ollama/ollama/issues/2941#issuecomment-2322778733) or [**Open WebUI**](https://docs.openwebui.com/getting-started/env-configuration) if needed.
 
 #### **Using WEBUI_AUTH**
 
@@ -23,14 +24,14 @@ If set to False, authentication is disabled for your Open WebUI instance. Howeve
 
 #### **Using TIME_ZONE**  
 
-Find available time zones <https://en.wikipedia.org/wiki/List_of_tz_database_time_zones> (e.g., `America/New_York`, `Asia/Seoul`).
+Find available time zones **<https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>** (e.g., `America/New_York`, `Asia/Seoul`).
 
 | Application | Log file                         |
 |-------------|----------------------------------|
 | JupyterLab  | /workspace/logs/jupyterlab.log |
 | Ollama | /workspace/logs/ollama.log |
 
-**For suggestions or issues, leave feedback at <https://github.com/somb1/Ollama-Open-WebUI-RP/issues>**
+For suggestions or issues, leave feedback at **<https://github.com/somb1/Ollama-Open-WebUI-RP/issues>**
 
 ---
 
@@ -44,5 +45,4 @@ Find available time zones <https://en.wikipedia.org/wiki/List_of_tz_database_tim
 - **Libraries**:
   - PyTorch 2.6.0
   - CUDA 12.4
-  - huggingface_hub
-  - hf_transfer
+  - huggingface_hub, hf_transfer
