@@ -1,4 +1,4 @@
-name: Scheduled Docker Build and Push to Docker Hub
+name: (Scheduled) Docker Build and Push to Docker Hub
 
 on:
   schedule:
