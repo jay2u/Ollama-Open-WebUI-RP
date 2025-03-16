@@ -37,7 +37,7 @@ WORKDIR /
 # Install essential packages (optimized to run in one command)
 RUN apt-get update -y && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
-        git wget curl bash nginx-light rsync sudo binutils nano lshw tzdata build-essential ffmpeg \
+        git wget curl bash nginx-light rsync sudo binutils nano lshw tzdata build-essential ffmpeg nvtop \
         libgl1 libglib2.0-0 \
         openssh-server ca-certificates && \
     apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
