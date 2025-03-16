@@ -39,7 +39,9 @@ jobs:
 
       - name: Set image tag
         run: |
-          echo "IMAGE_TAG=${{ secrets.DOCKER_HUB_USERNAME }}/$REPO_NAME:torch$TORCH_VERSION-$CUDA_VERSION$EXTRA_TAG" >> $GITHUB_ENV
+          IMAGE_TAG="${{ secrets.DOCKER_HUB_USERNAME }}/$REPO_NAME:torch$TORCH_VERSION-$CUDA_VERSION$EXTRA_TAG"
+          echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
+          echo "Generated IMAGE_TAG: $IMAGE_TAG"
 
       - name: Build Docker image
         run: |
