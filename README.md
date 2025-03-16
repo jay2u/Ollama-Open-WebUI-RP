@@ -46,4 +46,4 @@ For suggestions or issues, leave feedback at **<https://github.com/somb1/Ollama-
   - PyTorch 2.6.0
   - CUDA 12.4
   - huggingface_hub, hf_transfer - [Link](https://huggingface.co/docs/huggingface_hub/index)
-  - nvtop -[Link](https://github.com/Syllo/nvtop)
+  - nvtop - [Link](https://github.com/Syllo/nvtop)
