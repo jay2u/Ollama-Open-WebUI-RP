@@ -1,4 +1,4 @@
-name: Scheduled Docker Build and Push to Docker Hub
+name: (Scheduled) Docker Build and Push to Docker Hub
 
 on:
   schedule:
@@ -35,7 +35,6 @@ jobs:
         run: |
           IMAGE_TAG="${{ secrets.DOCKER_HUB_USERNAME }}/$REPO_NAME:torch$TORCH_VERSION-$CUDA_VERSION$EXTRA_TAG"
           echo "IMAGE_TAG=$IMAGE_TAG" >> $GITHUB_ENV
-          echo "Generated IMAGE_TAG: $IMAGE_TAG"
 
       - name: Build Docker image
         run: |
