@@ -59,11 +59,19 @@ RUN pip install --no-cache-dir -U \
     open-webui huggingface_hub hf_transfer \
     torch==${TORCH_VERSION} torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/${CUDA_VERSION}
 
-RUN mkdir -p /workspace/{logs,models,data}
-
 # Install Ollama
 ADD https://ollama.com/install.sh /ollama-installer.sh
 RUN sh /ollama-installer.sh && rm /ollama-installer.sh
+
+# Create logs, models, and data subdirectories under /workspace
+RUN mkdir -p /workspace/{logs,models,data} /root/.jupyter/lab/user-settings/@jupyterlab/{apputils-extension,filebrowser-extension} && \  
+    # JupyterLab application settings: Apply Dark theme
+    echo '{ "theme": "JupyterLab Dark" }' > /root/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings && \
+    # JupyterLab notification settings: Disable news fetch
+    echo '{ "fetchNews": "false" }' > /root/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/notification.jupyterlab-settings && \
+    # JupyterLab file browser settings: Enable showing hidden files
+    echo '{ "showHiddenFiles": true }' > /root/.jupyter/lab/user-settings/@jupyterlab/filebrowser-extension/browser.jupyterlab-settings
+
 
 # NGINX Proxy Configuration
 COPY proxy/nginx.conf /etc/nginx/nginx.conf

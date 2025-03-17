@@ -9,5 +9,4 @@ echo "$TZ" | sudo tee /etc/timezone > /dev/null && \
 sudo ln -sf "/usr/share/zoneinfo/$TZ" /etc/localtime && \
 sudo dpkg-reconfigure -f noninteractive tzdata
 
-cd /workspace
-mkdir -p /workspace/logs /workspace/models
+mkdir -p /workspace/{logs,models,data}
