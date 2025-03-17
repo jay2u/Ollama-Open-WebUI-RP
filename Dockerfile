@@ -65,6 +65,12 @@ RUN mkdir -p /workspace/{logs,models,data}
 ADD https://ollama.com/install.sh /ollama-installer.sh
 RUN sh /ollama-installer.sh && rm /ollama-installer.sh
 
+# JupyterLab Settings
+RUN mkdir -p /root/.jupyter/lab/user-settings/@jupyterlab/{apputils-extension, filebrowser-extension} && \  
+    echo '{ "theme": "JupyterLab Dark" }' > /root/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings && \
+    echo '{ "fetchNews": "false" }' > /root/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/notification.jupyterlab-settings && \
+    echo '{ "showHiddenFiles": true }' > /root/.jupyter/lab/user-settings/@jupyterlab/filebrowser-extension/browser.jupyterlab-settings
+
 # NGINX Proxy Configuration
 COPY proxy/nginx.conf /etc/nginx/nginx.conf
 COPY proxy/readme.html /usr/share/nginx/html/readme.html
