@@ -64,13 +64,13 @@ ADD https://ollama.com/install.sh /ollama-installer.sh
 RUN sh /ollama-installer.sh && rm /ollama-installer.sh
 
 # Create logs, models, and data subdirectories under /workspace
-RUN mkdir -p /workspace/{logs,models,data} '/root/.jupyter/lab/user-settings/@jupyterlab/{apputils-extension,filebrowser-extension}' && \  
+RUN mkdir -p /workspace/{logs,models,data} /root/.jupyter/lab/user-settings/@jupyterlab/{apputils-extension,filebrowser-extension} && \  
     # JupyterLab application settings: Apply Dark theme
-    echo '{ "theme": "JupyterLab Dark" }' > '/root/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings' && \
+    echo '{ "theme": "JupyterLab Dark" }' > /root/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings && \
     # JupyterLab notification settings: Disable news fetch
-    echo '{ "fetchNews": "false" }' > '/root/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/notification.jupyterlab-settings' && \
+    echo '{ "fetchNews": "false" }' > /root/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/notification.jupyterlab-settings && \
     # JupyterLab file browser settings: Enable showing hidden files
-    echo '{ "showHiddenFiles": true }' > '/root/.jupyter/lab/user-settings/@jupyterlab/filebrowser-extension/browser.jupyterlab-settings'
+    echo '{ "showHiddenFiles": true }' > /root/.jupyter/lab/user-settings/@jupyterlab/filebrowser-extension/browser.jupyterlab-settings
 
 
 # NGINX Proxy Configuration
