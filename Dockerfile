@@ -72,7 +72,6 @@ RUN mkdir -p /workspace/{logs,models,data} /root/.jupyter/lab/user-settings/@jup
     # JupyterLab file browser settings: Enable showing hidden files
     echo '{ "showHiddenFiles": true }' > /root/.jupyter/lab/user-settings/@jupyterlab/filebrowser-extension/browser.jupyterlab-settings
 
-
 # NGINX Proxy Configuration
 COPY proxy/nginx.conf /etc/nginx/nginx.conf
 COPY proxy/readme.html /usr/share/nginx/html/readme.html
