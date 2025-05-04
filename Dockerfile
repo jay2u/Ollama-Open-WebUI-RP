@@ -14,7 +14,6 @@ ENV SHELL=/bin/bash
 ENV PYTHONUNBUFFERED=True 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Etc/UTC
-ENV UV_COMPILE_BYTECODE=1
 
 ENV OLLAMA_HOST=0.0.0.0
 ENV OLLAMA_MODELS=/workspace/models
@@ -38,7 +37,7 @@ WORKDIR /
 RUN apt-get update -y && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
         git wget curl bash nginx-light rsync sudo binutils nano lshw tzdata build-essential ffmpeg nvtop \
-        libgl1 libglib2.0-0 \
+        libgl1 libglib2.0-0 clang libomp-dev ninja-build \
         openssh-server ca-certificates && \
     apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
@@ -56,7 +55,9 @@ ENV PATH="/venv/bin:$PATH"
 RUN pip install --no-cache-dir -U \
     pip setuptools wheel \
     jupyterlab jupyterlab_widgets ipykernel ipywidgets \
-    open-webui huggingface_hub hf_transfer \
+    numpy scipy matplotlib pandas scikit-learn seaborn requests tqdm pillow pyyaml \
+    huggingface_hub hf_transfer \
+    open-webui \
     torch==${TORCH_VERSION} torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/${CUDA_VERSION}
 
 # Install Ollama
@@ -64,13 +65,7 @@ ADD https://ollama.com/install.sh /ollama-installer.sh
 RUN sh /ollama-installer.sh && rm /ollama-installer.sh
 
 # Create logs, models, and data subdirectories under /workspace
-RUN mkdir -p /workspace/{logs,models,data} /root/.jupyter/lab/user-settings/@jupyterlab/{apputils-extension,filebrowser-extension} && \  
-    # JupyterLab application settings: Apply Dark theme
-    echo '{ "theme": "JupyterLab Dark" }' > /root/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings && \
-    # JupyterLab notification settings: Disable news fetch
-    echo '{ "fetchNews": "false" }' > /root/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/notification.jupyterlab-settings && \
-    # JupyterLab file browser settings: Enable showing hidden files
-    echo '{ "showHiddenFiles": true }' > /root/.jupyter/lab/user-settings/@jupyterlab/filebrowser-extension/browser.jupyterlab-settings
+RUN mkdir -p /workspace/{logs,models,data}
 
 # NGINX Proxy Configuration
 COPY proxy/nginx.conf /etc/nginx/nginx.conf

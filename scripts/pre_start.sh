@@ -8,5 +8,3 @@ echo "**** Timezone set to $TZ ****" && \
 echo "$TZ" | sudo tee /etc/timezone > /dev/null && \
 sudo ln -sf "/usr/share/zoneinfo/$TZ" /etc/localtime && \
 sudo dpkg-reconfigure -f noninteractive tzdata
-
-mkdir -p /workspace/{logs,models,data}
