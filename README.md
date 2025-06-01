@@ -1,6 +1,8 @@
 > 🔄 Updated every 8 hours to always stay on the latest version.
-> You can access Open WebUI (port: 8080), search for a model in the top-left "Select a model" section, and pull it from ollama.com. (For a list of available models, visit **<https://ollama.com/models>**) \
-> If the model isn't available, download it from Hugging Face and import it manually.
+
+> Access Open WebUI on port 8080. \
+> Use the "Select a model" menu (top-left) to search and pull models from ollama.com. \
+> If a model is not available, you can manually download it from Hugging Face and import it.
 
 ### 🔌 Exposed Ports
 
@@ -36,12 +38,15 @@ To change images: Go to **Edit Pod/Template** → Set `Container Image`.
 | `TIME_ZONE`              | [Timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (e.g., `Asia/Seoul`)                                                               | `Etc/UTC` |
 | `OLLAMA_MODELS`          | Path to the models directory.                                               | `/workspace/models` |
 | `DATA_DIR`               | (Open WebUI) Base directory for data storage.                              | `/workspace/data` |
-| `WEBUI_AUTH`             | (Open WebUI) Enables (`True`) or disables (`False`) authentication. `False` runs Single-User Mode (no login). | `False` |
+| `WEBUI_AUTH`             | (Open WebUI) Enables or disables authentication. Set to `False` to run in Single-User Mode (no login required). (`True` / `False`) | `False` |
 
 To set: **Edit Pod/Template** → **Add Environment Variable** (Key/Value)
 
-> Refer to the official docs to add environment variables for [**Ollama**](https://github.com/ollama/ollama/issues/2941#issuecomment-2322778733) or [**Open WebUI**](https://docs.openwebui.com/getting-started/env-configuration) if needed.
-> For `WEBUI_AUTH`, If set to False, authentication is disabled for your Open WebUI instance. However, this can only be done on fresh installations with no existing users. If users are registered, authentication cannot be disabled. Ensure the database is empty before turning off `WEBUI_AUTH`.
+> For additional environment variables, refer to the documentation for [**Ollama**](https://github.com/ollama/ollama/issues/2941#issuecomment-2322778733) and [**Open WebUI**](https://docs.openwebui.com/getting-started/env-configuration).
+
+> For `WEBUI_AUTH`, setting it to `False` disables authentication. \
+> This only works on **fresh installations with no registered users**. \
+> If users already exist, you must **clear the database** before disabling authentication.
 
 ### 📁 Logs
 
