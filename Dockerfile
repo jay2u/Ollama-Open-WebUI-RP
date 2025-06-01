@@ -49,7 +49,7 @@ ENV PATH="/root/.local/bin/:$PATH"
 # Install Python and create virtual environment
 RUN uv python install ${PYTHON_VERSION} --default --preview && \
     uv venv --seed /venv
-ENV PATH="/venv/bin:$PATH"
+ENV PATH="/workspace/venv/bin:/venv/bin:$PATH"
 
 # Install essential Python packages
 RUN pip install --no-cache-dir -U \
