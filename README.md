@@ -1,49 +1,74 @@
-> You can access Open WebUI (port: 8080), search for a model in the top-left "Select a model" section, and pull it from ollama.com. (For a list of available models, visit **<https://ollama.com/models>**) \
-> If the model isn't available, download it from Hugging Face and import it manually.
+> 🔄 Updated every 8 hours to always stay on the latest version.
 
-| Port | Type (HTTP/TCP) | Function     |
-|------|-----------------|--------------|
-| 22   | TCP             | SSH          |
-| 8080 | HTTP            | Open WebUI |
-| 8888 | HTTP            | JupyterLab  |
-| 11434 | HTTP            | Ollama API  |
+> In Open WebUI, Use the "Select a model" menu (top-left) to search and pull models from ollama.com. \
+> You can find a list of available models at <https://ollama.com/models> \
+> If a model is not available there, you can manually download it from Hugging Face and import it.
 
-| Environment Variable     | Description                                                                 | Default      |
-|--------------------------|-----------------------------------------------------------------------------|--------------|
-| `JUPYTERLAB_PASSWORD`    | Password for JupyterLab. If unset, no password is required.                 | (Not Set)    |
-| `TIME_ZONE`              | System timezone. Defaults to `Etc/UTC` if unset.                            | `Etc/UTC`    |
-| `OLLAMA_MODELS`          | Path to the models directory.                                               | `/workspace/models` |
-| `DATA_DIR`               | (Open WebUI) Base directory for data storage.                              | `/workspace/data` |
-| `WEBUI_AUTH`             | (Open WebUI) Enables (`True`) or disables (`False`) authentication. `False` runs Single-User Mode (no login). | `False` |
+### 🔌 Exposed Ports
 
-> Refer to the official docs to add environment variables for [**Ollama**](https://github.com/ollama/ollama/issues/2941#issuecomment-2322778733) or [**Open WebUI**](https://docs.openwebui.com/getting-started/env-configuration) if needed.
+| Port | Type | Purpose    |
+| ---- | ---- | ---------- |
+| 22   | TCP  | SSH        |
+| 8080 | HTTP | Open WebUI |
+| 8888 | HTTP | JupyterLab |
 
-#### **Using WEBUI_AUTH**
+### 🏷️ Tag Structure
 
-If set to False, authentication is disabled for your Open WebUI instance. However, this can only be done on fresh installations with no existing users. If users are registered, authentication cannot be disabled. Ensure the database is empty before turning off `WEBUI_AUTH`.
-
-#### **Using TIME_ZONE**  
-
-Find available time zones **<https://en.wikipedia.org/wiki/List_of_tz_database_time_zones>** (e.g., `America/New_York`, `Asia/Seoul`).
-
-| Application | Log file                         |
-|-------------|----------------------------------|
-| JupyterLab  | /workspace/logs/jupyterlab.log |
-| Ollama | /workspace/logs/ollama.log |
-
-For suggestions or issues, leave feedback at **<https://github.com/somb1/Ollama-Open-WebUI-RP/issues>**
+* `cu124`, `cu126`, `cu128`: CUDA version (12.4 / 12.6 / 12.8)
 
 ---
 
-### **Pre-Installed Components**
+### 🧱 Image Matrix
 
-#### **Base System**
+| Image Name                                      | CUDA |
+| ----------------------------------------------- | ---- |
+| `sombi/ollama-open-webui:base-torch2.7.0-cu124` | 12.4 |
+| `sombi/ollama-open-webui:base-torch2.7.0-cu126` | 12.6 |
+| `sombi/ollama-open-webui:base-torch2.7.0-cu128` | 12.8 |
 
-- **OS**: Ubuntu 22.04
-- **Framework**: Ollama + Open WebUI + JupyterLab
-- **Python**: 3.11
-- **Libraries**:
-  - PyTorch 2.6.0
-  - CUDA 12.4
-  - huggingface_hub, hf_transfer - [Link](https://huggingface.co/docs/huggingface_hub/index)
-  - nvtop - [Link](https://github.com/Syllo/nvtop)
+To change images: Go to **Edit Pod/Template** → Set `Container Image`.
+
+---
+
+### ⚙️ Environment Variables
+
+| Variable              | Description                                                                                                                        | Default             |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `JUPYTERLAB_PASSWORD` | Password for JupyterLab                                                                                                            | (unset)             |
+| `TIME_ZONE`           | [Timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (e.g., `Asia/Seoul`)                                      | `Etc/UTC`           |
+| `START_OLLAMA`        | (Ollama) Starts the Ollama server at start. (`True` / `False`)                                                                     | `True`              |
+| `OLLAMA_MODELS`       | (Ollama) Path to the models directory.                                                                                             | `/workspace/models` |
+| `DATA_DIR`            | (Open WebUI) Base directory for data storage.                                                                                      | `/workspace/data`   |
+| `WEBUI_AUTH`          | (Open WebUI) Enables or disables authentication. Set to `False` to run in Single-User Mode (no login required). (`True` / `False`) | `False`             |
+
+To set: **Edit Pod/Template** → **Add Environment Variable** (Key/Value)
+
+> For additional environment variables, refer to the documentation for [**Ollama**](https://github.com/ollama/ollama/issues/2941#issuecomment-2322778733) and [**Open WebUI**](https://docs.openwebui.com/getting-started/env-configuration).
+
+> For `WEBUI_AUTH`, setting it to `False` disables authentication. \
+> This only works on **fresh installations with no registered users**. \
+> If users already exist, you must **clear the database** before disabling authentication.
+
+### 📁 Logs
+
+| App        | Location                       |
+|------------|--------------------------------|
+| JupyterLab | /workspace/logs/jupyterlab.log |
+| Ollama     | /workspace/logs/ollama.log     |
+
+---
+
+### 🧩 Pre-Installed Components
+
+#### **System**
+
+* **OS**: Ubuntu 22.04
+* **Python**: 3.11
+* **Framework**: Ollama + Open WebUI + JupyterLab
+* **Libraries**: PyTorch 2.7.0, CUDA (12.4–12.8), Triton, [hf\_hub](https://huggingface.co/docs/huggingface_hub), [nvtop](https://github.com/Syllo/nvtop)
+
+---
+
+💬 Feedback & Issues → [GitHub Issues](https://github.com/somb1/Ollama-Open-WebUI-RP/issues)
+
+---
