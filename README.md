@@ -1,7 +1,7 @@
 > 🔄 Updated every 8 hours to always stay on the latest version.
 
 > In Open WebUI, Use the "Select a model" menu (top-left) to search and pull models from ollama.com. \
-> You can find a list of available models at https://ollama.com/models. \
+> You can find a list of available models at <https://ollama.com/models> \
 > If a model is not available there, you can manually download it from Hugging Face and import it.
 
 ### 🔌 Exposed Ports
