@@ -36,10 +36,10 @@ WORKDIR /
 # Install essential packages (optimized to run in one command)
 RUN apt-get update -y && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
-        git wget curl bash nginx-light rsync sudo binutils nano lshw tzdata build-essential ffmpeg nvtop \
+        git wget curl bash nginx-light rsync sudo binutils ffmpeg lshw nano tzdata file build-essential nvtop \
         libgl1 libglib2.0-0 clang libomp-dev ninja-build \
         openssh-server ca-certificates && \
-    apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+    apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 # Install the UV tool from astral-sh
 ADD https://astral.sh/uv/install.sh /uv-installer.sh
@@ -65,7 +65,7 @@ ADD https://ollama.com/install.sh /ollama-installer.sh
 RUN sh /ollama-installer.sh && rm /ollama-installer.sh
 
 # Create logs, models, and data subdirectories under /workspace
-RUN mkdir -p /workspace/{logs,models,data}
+RUN mkdir -p /workspace/{logs,models,data,venv}
 
 # NGINX Proxy Configuration
 COPY proxy/nginx.conf /etc/nginx/nginx.conf
