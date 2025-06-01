@@ -1,8 +1,8 @@
 > 🔄 Updated every 8 hours to always stay on the latest version.
 
-> Access Open WebUI on port 8080. \
-> Use the "Select a model" menu (top-left) to search and pull models from ollama.com. \
-> If a model is not available, you can manually download it from Hugging Face and import it.
+> In Open WebUI, Use the "Select a model" menu (top-left) to search and pull models from ollama.com. \
+> You can find a list of available models at https://ollama.com/models. \
+> If a model is not available there, you can manually download it from Hugging Face and import it.
 
 ### 🔌 Exposed Ports
 
