@@ -37,6 +37,7 @@ To change images: Go to **Edit Pod/Template** → Set `Container Image`.
 | `JUPYTERLAB_PASSWORD` | Password for JupyterLab                                                                                                            | (unset)             |
 | `TIME_ZONE`           | [Timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (e.g., `Asia/Seoul`)                                      | `Etc/UTC`           |
 | `START_OLLAMA`        | (Ollama) Starts the Ollama server at start. (`True` / `False`)                                                                     | `True`              |
+| `OLLAMA_HOST`         | (Ollama) Configures the host and scheme for the Ollama server.                                                                     | `0.0.0.0`           |
 | `OLLAMA_MODELS`       | (Ollama) Path to the models directory.                                                                                             | `/workspace/models` |
 | `DATA_DIR`            | (Open WebUI) Base directory for data storage.                                                                                      | `/workspace/data`   |
 | `WEBUI_AUTH`          | (Open WebUI) Enables or disables authentication. Set to `False` to run in Single-User Mode (no login required). (`True` / `False`) | `False`             |
