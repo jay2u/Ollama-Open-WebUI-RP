@@ -1,5 +1,5 @@
 variable "DOCKERHUB_REPO_NAME" {
-    default = "sombi/ollama-open-webui"
+    default = "jwkorver/llm-self-hosted"
 }
 
 variable "PYTHON_VERSION" {
@@ -15,7 +15,8 @@ variable "EXTRA_TAG" {
 
 function "tag" {
     params = [tag, cuda]
-    result = ["${DOCKERHUB_REPO_NAME}:${tag}-torch${TORCH_VERSION}-${cuda}${EXTRA_TAG}"]
+    # result = ["${DOCKERHUB_REPO_NAME}:${tag}-torch${TORCH_VERSION}-${cuda}${EXTRA_TAG}"]
+    result = ["${DOCKERHUB_REPO_NAME}:${tag}-${cuda}${EXTRA_TAG}"]
 }
 
 target "_common" {

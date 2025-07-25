@@ -53,13 +53,16 @@ RUN uv python install ${PYTHON_VERSION} --default --preview && \
 ENV PATH="/workspace/venv/bin:/venv/bin:$PATH"
 
 # Install essential Python packages
+# RUN pip install --no-cache-dir -U \
+#     pip setuptools wheel \
+#     jupyterlab jupyterlab_widgets ipykernel ipywidgets \
+#     numpy scipy matplotlib pandas scikit-learn seaborn requests tqdm pillow pyyaml \
+#     huggingface_hub hf_transfer \
+#     open-webui \
+#     torch==${TORCH_VERSION} torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/${CUDA_VERSION}
+
 RUN pip install --no-cache-dir -U \
-    pip setuptools wheel \
-    jupyterlab jupyterlab_widgets ipykernel ipywidgets \
-    numpy scipy matplotlib pandas scikit-learn seaborn requests tqdm pillow pyyaml \
-    huggingface_hub hf_transfer \
-    open-webui \
-    torch==${TORCH_VERSION} torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/${CUDA_VERSION}
+    open-webui
 
 # Install Ollama
 ADD https://ollama.com/install.sh /ollama-installer.sh
