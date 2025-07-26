@@ -20,7 +20,6 @@ ENV OLLAMA_MODELS=/workspace/models
 ENV DATA_DIR=/workspace/data
 ENV WEBUI_AUTH=False
 ENV START_OLLAMA=True
-ENV DOWNLOAD_MODELS=True
 
 # Override the default huggingface cache directory.
 ENV HF_HOME="/runpod-volume/.cache/huggingface/"

@@ -114,11 +114,6 @@ export_env_vars
 
 execute_script "/post_start.sh" "Running post-start script..."
 
-if [ "${DOWNLOAD_MODELS,,}" = "true" ]; then
-  ollama pull qwen3:32b
-  ollama deepseek-r1:32b
-fi
-
 echo "Start script(s) finished, pod is ready to use."
 
 sleep infinity
