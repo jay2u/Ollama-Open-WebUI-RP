@@ -69,6 +69,10 @@ RUN pip install --no-cache-dir -U \
 ADD https://ollama.com/install.sh /ollama-installer.sh
 RUN sh /ollama-installer.sh && rm /ollama-installer.sh
 
+# Install btop (for GPU monitoring)
+RUN git clone https://github.com/aristocratos/btop.git /btop
+RUN cd /btop && make && make install && rm -rf /btop
+
 # Create logs, models, and data subdirectories under /workspace
 RUN mkdir -p /workspace/{logs,models,data,venv}
 
