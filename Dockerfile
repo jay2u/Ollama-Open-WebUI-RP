@@ -73,6 +73,10 @@ RUN sh /ollama-installer.sh && rm /ollama-installer.sh
 RUN git clone https://github.com/aristocratos/btop.git /btop
 RUN cd /btop && make && make install && rm -rf /btop
 
+# Install Gotty (for easy btop access)
+RUN cd /tmp && wget -q -O - https://github.com/yudai/gotty/releases/download/v1.0.1/gotty_linux_amd64.tar.gz | tar xz && mv gotty /usr/bin
+
+
 # Create logs, models, and data subdirectories under /workspace
 RUN mkdir -p /workspace/{logs,models,data,venv}
 

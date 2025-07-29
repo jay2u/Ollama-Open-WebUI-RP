@@ -13,3 +13,6 @@ fi
 echo "***** Starting Open WebUI server... *****"
 open-webui serve &
 echo "***** Open WebUI server started *****"
+
+echo "***** Starting GPU monitoring service *****"
+gotty -p 1234 -w --ws-origin '.*' btop --force-utf &
